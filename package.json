@@ -1,0 +1,28 @@
+{
+  "name": "assignment_async_redux",
+  "version": "1.0.0",
+  "description": "Good_Reads_Book_Search",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TyeMai/assignment_async_redux.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TyeMai/assignment_async_redux/issues"
+  },
+  "homepage": "https://github.com/TyeMai/assignment_async_redux#readme",
+  "dependencies": {
+    "dotenv": "^6.1.0",
+    "es6-promise": "^4.2.5",
+    "express": "^4.16.4",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
