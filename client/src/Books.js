@@ -1,23 +1,30 @@
 import React from 'react';
+import BookHelper from './BookHelper'
 
-const BooksContent = ({books, isFetching}) => {
-  console.log(books)
+const BooksContent = ({books}) => {
+  //console.log(books)
+  const BookCard = books.map((book) => (<BookHelper title={book.title} author={book.author} image={book.image} rating={book.rating} key={book.id} onClick={() => setFilter(book.id)}/>))
+
   return (
     <div className="BooksContent">
-      <h2>Book:</h2>
-        {/* <h3>{books.description}</h3> */}
-      {/* <h3>{books.title}</h3>
-      <h3>{books.description}</h3>
-      <img src={books.url} alt={books.title}/> */}
+      {BookCard}
     </div>
   )
+
 }
-const Books = ({books, isFetching}) => {
+
+const Books = ({books, isFetching, filter}) => {
+console.log()
   return (
-  <div className='Books'>
-    <h1>Your Books</h1>
-    {isFetching ? <p>Loading ho!</p>:<BooksContent books={books}/>}
-  </div>)
+    <div className='Books'>
+
+      {
+        isFetching
+          ? <p>looking for books...</p>
+          : <BooksContent books={books} isFetching={isFetching}/>
+      }
+    </div>
+  )
 }
 
 export default Books

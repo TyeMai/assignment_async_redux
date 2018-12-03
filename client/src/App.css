@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  /* text-align:left; */
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+
 }
 
 .App-logo {
@@ -29,4 +32,58 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* .Books {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+} */
+
+.BooksContent {
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  grid-auto-rows: auto;
+  justify-content: space-around;
+  grid-gap: 10px;
+}
+
+.BookCard {
+  justify-self: space-around;
+}
+
+.bookImg {
+  width: 111px;
+  height: 148px;
+}
+
+.formContainer {
+  display: grid;
+  grid-template-rows: 1fr 50px 50px;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.searchBook {
+  /* grid-column: span 2; */
+  justify-self: center;
+}
+
+.searchButton {
+  display: grid;
+  align-self: start;
+  justify-self: center;
+  width: 100px;
+
+}
+
+.form-group {
+  justify-self: center;
+}
+
+.bookButton {
+  /* visibility: hidden; */
+  color: #282c34;
+  width: 0px;
+  height: 0px;
 }

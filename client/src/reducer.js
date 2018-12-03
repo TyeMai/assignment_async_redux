@@ -1,12 +1,13 @@
 import * as Actions from './actions' //what is this?
-
+import {combineReducers} from 'redux'
 const initialState = {
   book: {},
-  isFetching: false,
+  isFetching: 'initial',
   error: null
 }
 
-export function getBooks(state = initialState, action) {
+function getBooks(state = initialState, action) {
+  //console.log(action, "im the fucntion action")
   switch (action.type) {
     case Actions.GET_BOOK_SUCCESS:
       return {
@@ -15,6 +16,7 @@ export function getBooks(state = initialState, action) {
         isFetching: false
       }
     case Actions.GET_BOOK_REQUEST:
+    console.log("im in get book reqest reducer")
       return {
         ...state,
         isFetching: true,
@@ -30,3 +32,16 @@ export function getBooks(state = initialState, action) {
       return state
   }
 }
+
+function bookFilter(state='SHOW_ALL', action){
+  switch(action.type) {
+    case Actions.SET_FILTER_BY_ID:
+      return action.data
+      default:
+      return state
+  }
+}
+
+export const booksApp = combineReducers({
+  bookFilter, getBooks
+})

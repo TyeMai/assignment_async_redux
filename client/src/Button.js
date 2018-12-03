@@ -2,13 +2,13 @@ import React from 'react'
 
 
 const Button = (props) => {
-  const {type, color, children, onClick, ...rest} = props
+  const {type, color, children, onClick, className, ...rest} = props
   //const sizeClass = size ? `btn-${size}` : ''
-  console.log(props , 'im button props', onClick)
+  //console.log(props , 'im button props', onClick)
   return (
     <button
       type={type}
-      className={`btn btn-${color}`}
+      className={className}
       onClick={onClick}
       {...rest}
     >
@@ -20,7 +20,7 @@ const Button = (props) => {
 Button.defaultProps = {
   type: 'button',
   color: 'default',
-  children: 'submit'
+  children: 'submit',
 }
 
 export default Button

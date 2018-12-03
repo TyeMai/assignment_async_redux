@@ -6,9 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import {getBooks} from './reducer';
+import {booksApp} from './reducer';
 
-let store = createStore(getBooks, applyMiddleware(thunk))
+let store = createStore(booksApp, applyMiddleware(thunk))
 
 ReactDOM.render(
 <Provider store={store}>

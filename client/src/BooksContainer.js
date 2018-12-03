@@ -7,22 +7,41 @@ import { getBookRequest } from './actions'
 
 class BooksContainer extends Component {
   //console.log('im in booksconters')
+
+  // onClick = () => {
+  //   console.log('hey onlickc got clicked')
+  // }
+
   componentDidMount() {
    this.props.getBookRequest()
   }
 
   render() {
-    const {books, isFetching} = this.props
+    const {books, isFetching, filter} = this.props
+    //console.log(getBookRequest)
+    console.log(books, "from bookscontainer")
+    //console.log(typeof books)
+    //console.log(books[0], 'first time of books')
+    console.log(isFetching)
     return (
-      <Books books={books} isFetching={isFetching} />)
+      <div>
+      {
+        (isFetching === 'initial')
+        ? <h1>magic</h1>
+        : <Books books={books} isFetching={isFetching} filter={filter}/>
+
+      }
+    </div>
+    )
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state, "im the staet")
+  //console.log(state, "im the state")
   return {
-    books: state.json,
-    // isFetching: state.isFetching
+    books: state.getBooks.book,
+    isFetching: state.getBooks.isFetching,
+    filter: state.bookFilter
   }
 }
 
@@ -31,6 +50,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getBookRequest: () => {
       dispatch(getBookRequest())
+    },
+    onClick: (e) => {
+      dispatch()
     }
   }
 }

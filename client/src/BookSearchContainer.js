@@ -12,13 +12,19 @@ import BookSearchForm from './BookSearchForm'
 
 // Map dispatch to props to create a submit function that
 // dispatches creating a puppy
-const mapDispatchToProps = (dispatch) => {
+
+const mapStateToProps = (state) => {
+  //console.log(state)
+  return state
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log(ownProps)
   return {
     onSubmit: (e) => {
       e.preventDefault()
       const form = e.target
       const data = serialize(form, {hash: true})
-      //console.log(data.searchTerm , 'im the form data!')
+      console.log(data.searchTerm , 'im the form data!')
       dispatch(getBookRequest(data.searchTerm))
       form.reset()
     }
@@ -29,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
 // with all the new props. We don't need to map state to
 // props so we just send `null` in its place.
 const BookSearchContainer = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(BookSearchForm)
 
