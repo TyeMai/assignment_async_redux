@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
   return state
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log(ownProps)
+  //console.log(ownProps)
   return {
     onSubmit: (e) => {
       e.preventDefault()
