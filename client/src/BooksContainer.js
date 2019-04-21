@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Books from './Books'
-//import
 import { getBookRequest, setFilter } from './actions'
 
 
@@ -12,9 +11,9 @@ class BooksContainer extends Component {
   //   console.log('hey onlickc got clicked')
   // }
 
-  componentDidMount() {
-   this.props.getBookRequest()
-  }
+  // componentDidMount() {
+  //  //this.props.getBookRequest()
+  // }
 
   render() {
     const {books, isFetching, filter, onPicClick} = this.props
@@ -27,7 +26,7 @@ class BooksContainer extends Component {
       <div>
       {
         (isFetching === 'initial')
-        ? <h1>magic</h1>
+        ? null
         : <Books books={books} isFetching={isFetching} filter={filter} onPicClick={onPicClick}/>
 
       }
@@ -37,7 +36,7 @@ class BooksContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state, "im the state")
+ //console.log(state, "im the state")
  //set books here.
  let booksToShow;
  if (state.bookFilter === "SHOW_ALL"){

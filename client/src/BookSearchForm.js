@@ -14,8 +14,5 @@ const SearchBook = ({onSubmit}) => (
   </form>
 )
 
-// AddPuppy.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// }
 
 export default SearchBook

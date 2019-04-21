@@ -74,11 +74,14 @@ app.get('/api/books/search', (req, res, next) => {
       })
     }
     res.json(arrOfBooks)
+    console.log(res.json + 'im a console of res.json')
   })
   .catch((error) => {
     next(error)
   })
+
 })
+
 
 function errorHandler(err,req, res, next) {
   console.error(`Error" ${err.stack}`)

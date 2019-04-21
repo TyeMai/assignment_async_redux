@@ -2,8 +2,8 @@
 import {connect} from 'react-redux'
 // Import serialize to get the serialized form data
 import serialize from 'form-serialize'
-//Import the createPuppy action creator
-import {getBookRequest} from './actions'
+//Import the setFilter and getBookRequest action creators
+import {getBookRequest, setFilter} from './actions'
 // Import the presentational component
 import BookSearchForm from './BookSearchForm'
 
@@ -24,16 +24,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       e.preventDefault()
       const form = e.target
       const data = serialize(form, {hash: true})
-      console.log(data.searchTerm , 'im the form data!')
+      //console.log(data.searchTerm , 'im the form data!')
       dispatch(getBookRequest(data.searchTerm))
+      dispatch(setFilter("SHOW_ALL"))
       form.reset()
     }
   }
 }
 
-// Generate the AddPuppyContainer which renders AddPuppy
-// with all the new props. We don't need to map state to
-// props so we just send `null` in its place.
+
 const BookSearchContainer = connect(
   mapStateToProps,
   mapDispatchToProps

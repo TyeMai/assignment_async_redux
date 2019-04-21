@@ -1,5 +1,6 @@
 import * as Actions from './actions' //what is this?
 import {combineReducers} from 'redux'
+
 const initialState = {
   book: {},
   isFetching: 'initial',
@@ -16,7 +17,7 @@ function getBooks(state = initialState, action) {
         isFetching: false
       }
     case Actions.GET_BOOK_REQUEST:
-    console.log("im in get book reqest reducer")
+    //console.log("im in get book reqest reducer")
       return {
         ...state,
         isFetching: true,

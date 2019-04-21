@@ -20,13 +20,13 @@ export function bookRequest(data) {
 
 export function getBookRequest(searchTerm) { //
   //console.log('im the get book rest action')
-  console.log(searchTerm)
+  //console.log(searchTerm)
   return(dispatch) => { //this is a thunk
     dispatch(bookRequest())
       //console.log(searchTerm, "im in actions serahc term")
     if (searchTerm){
       fetch(`/api/books/search?q=${searchTerm}`).then((response) => {
-        console.log('im in fetch')
+        //console.log('im in fetch')
         if(!response.ok) {
           throw new Error(`${response.status}: ${response.statusText}`)
         }
