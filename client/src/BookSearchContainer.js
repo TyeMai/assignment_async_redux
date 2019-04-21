@@ -10,13 +10,13 @@ import BookSearchForm from './BookSearchForm'
 //import {createItem} from "../actions"
 
 
-// Map dispatch to props to create a submit function that
-// dispatches creating a puppy
+
 
 const mapStateToProps = (state) => {
-  //console.log(state)
   return state
 }
+// Map dispatch to props to create a submit function that
+// dispatches serching for a book
 const mapDispatchToProps = (dispatch, ownProps) => {
   //console.log(ownProps)
   return {

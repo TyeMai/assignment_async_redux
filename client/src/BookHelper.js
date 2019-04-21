@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Book = (props) => {
-  const {title, author, image, rating, onClick}  = props //.food ...restOfProps
+  const {title, author, image, rating, onClick}  = props
 
   if (rating){
     return (

@@ -8,7 +8,6 @@ const initialState = {
 }
 
 function getBooks(state = initialState, action) {
-  //console.log(action, "im the fucntion action")
   switch (action.type) {
     case Actions.GET_BOOK_SUCCESS:
       return {
@@ -17,7 +16,6 @@ function getBooks(state = initialState, action) {
         isFetching: false
       }
     case Actions.GET_BOOK_REQUEST:
-    //console.log("im in get book reqest reducer")
       return {
         ...state,
         isFetching: true,

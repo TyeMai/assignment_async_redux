@@ -5,8 +5,6 @@ import { getBookRequest, setFilter } from './actions'
 
 
 class BooksContainer extends Component {
-  //console.log('im in booksconters')
-
   // onClick = () => {
   //   console.log('hey onlickc got clicked')
   // }
@@ -17,14 +15,11 @@ class BooksContainer extends Component {
 
   render() {
     const {books, isFetching, filter, onPicClick} = this.props
-    //console.log(getBookRequest)
-    //console.log(books, "from bookscontainer")
-    //console.log(typeof books)
-    //console.log(books[0], 'first time of books')
-    //console.log(isFetching)
     return (
       <div>
       {
+        //while the request is being made, "looking for books" will show up in the browser
+        //once the request is complete the books should show up.
         (isFetching === 'initial')
         ? null
         : <Books books={books} isFetching={isFetching} filter={filter} onPicClick={onPicClick}/>
@@ -37,14 +32,13 @@ class BooksContainer extends Component {
 
 const mapStateToProps = (state) => {
  //console.log(state, "im the state")
- //set books here.
  let booksToShow;
+ //if a book is clicked on, all other books will be filterd out
  if (state.bookFilter === "SHOW_ALL"){
    booksToShow = state.getBooks.book
  } else {
    booksToShow = state.getBooks.book.filter(book => book.id === state.bookFilter)
  }
-
   return {
     books: booksToShow,
     isFetching: state.getBooks.isFetching,
@@ -53,7 +47,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  //console.log('im dispathcing!')
   return {
     getBookRequest: () => {
       dispatch(getBookRequest())
